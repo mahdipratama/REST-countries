@@ -1,14 +1,18 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Navbar from './components/Navbar';
-import SearchBar from './components/SearchBar';
-import CountryList from './components/CountryList';
+import Home from './pages/Home';
+import CountryDetail from './pages/CountryDetail';
 
 const App = () => {
   return (
-    <main>
+    <Router>
       <Navbar />
-      <SearchBar />
-      <CountryList />
-    </main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="country/:id" element={<CountryDetail />} />
+      </Routes>
+    </Router>
   );
 };
 
