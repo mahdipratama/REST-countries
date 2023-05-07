@@ -41,29 +41,51 @@ body {
   font-weight: 600;
 }
 
-.search-bar {
+.search-section {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-block: 46px;
 }
 
-.search-bar input {
-  width: 50%;
-  padding: 16px;
-  box-shadow: 0px 12px 22px -10px rgba(0, 0, 0, 0.1);
+.search-bar {
+  width: 100%;
 }
 
-.search-bar .region-dropdown {
-  width: 30%;
+.form-control {
+  position: relative;
+}
+
+.search-bar input {
+  width: 60%;
   padding: 16px;
-  box-shadow: 0px 12px 22px -10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 6px;
+  padding-left: 3rem;
+}
+
+.search-bar input:focus {
+  outline: 2px solid var(--text-light-mode);
+}
+
+.search-bar input::placeholder {
+  font-weight: 600;
+  font-size: 14px;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.search-bar .search-icon {
+  position: absolute;
+  top: 50%;
+  left: 2%;
+  transform: translateY(-50%);
+  color: var(--text-light-mode);
 }
 
 .list-country {
   display: flex;
   justify-content: space-between;
-  /* align-items: center; */
   flex-direction: row;
   flex-wrap: wrap;
   gap: 40px;
@@ -146,34 +168,37 @@ body {
 .dropdown button {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 10px;
-  padding: 0 16px;
+  padding: 0 20px;
   margin: 0;
+  width: 200px;
   height: 64px;
   border-radius: 6px;
-  color: #f9f9f9;
-  background-color: #211d26;
+  background-color: var(--white);
+  box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.1);
   border: 0;
   cursor: pointer;
-  font-size: 18px;
-  font-family: 'Euclid Circular A', 'Poppins';
+  font-size: 16px;
+  font-weight: 300;
+  margin-left: auto;
 }
 
 .dropdown button:hover {
-  background: #2d2834;
+  background: var(--text-light-mode);
 }
 
 .dropdown.open > button {
-  background: #712ae0;
+  background: var(--text-light-mode);
 }
 
 .dropdown .menu {
   position: absolute;
   overflow: hidden;
   z-index: 1;
-  top: 0px;
-  left: 0;
-  width: 100%;
+  top: 65px;
+  right: 0;
+  width: 200px;
   opacity: 0;
   visibility: hidden;
   border-bottom-left-radius: 6px;
@@ -192,4 +217,5 @@ body {
   opacity: 1;
   visibility: visible;
   translate: 0;
+  box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.1);
 }

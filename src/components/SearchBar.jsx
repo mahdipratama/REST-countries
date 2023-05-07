@@ -3,7 +3,7 @@ import FilterRegion from './FilterRegion';
 
 const SearchBar = () => {
   return (
-    <div className="container search-bar">
+    <div className="container search-section">
       <SearchForm />
       <FilterRegion />
     </div>

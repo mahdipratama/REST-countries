@@ -1,8 +1,13 @@
-import { useEffect, useState, useContext, createContext } from 'react';
+import {
+  useEffect,
+  useState,
+  useContext,
+  createContext,
+  useCallback,
+} from 'react';
 
-// name, population,region,capital
+const searchCountryURL = 'https://restcountries.com/v3.1/name/';
 
-const allCountryURL = 'https://restcountries.com/v3.1/all';
 const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
@@ -10,11 +15,12 @@ const AppProvider = ({ children }) => {
   const [regions, setRegions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filteredCountries, setFilteredCountries] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('a');
 
-  const fetchAllCountry = async () => {
+  const fetchAllCountry = useCallback(async () => {
     setLoading(true);
     try {
-      const response = await fetch(allCountryURL);
+      const response = await fetch(`${searchCountryURL}${searchTerm}`);
 
       if (!response.ok) throw new Error('Error Get Countries');
 
@@ -55,7 +61,7 @@ const AppProvider = ({ children }) => {
       console.error(err);
       setLoading(false);
     }
-  };
+  }, [searchTerm]);
 
   const FilterRegions = region => {
     if (region === 'Filter by Region') {
@@ -72,11 +78,18 @@ const AppProvider = ({ children }) => {
 
   useEffect(() => {
     fetchAllCountry();
-  }, []);
+  }, [searchTerm, fetchAllCountry]);
 
   return (
     <AppContext.Provider
-      value={{ loading, countries, regions, filteredCountries, FilterRegions }}>
+      value={{
+        loading,
+        countries,
+        regions,
+        filteredCountries,
+        FilterRegions,
+        setSearchTerm,
+      }}>
       {children}
     </AppContext.Provider>
   );

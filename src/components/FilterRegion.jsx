@@ -40,7 +40,7 @@ const FilterRegion = () => {
     <div ref={ref} className={`dropdown ${isOpen ? 'open' : ''}`}>
       <button onClick={() => setIsOpen(!isOpen)}>
         <span>{currentRegion || 'Filter by Region'}</span>
-        <i className="fa-solid fa-chevron-down fa-xl"></i>
+        <i className="fa-solid fa-chevron-down fa-sm"></i>
       </button>
       <div className="menu">
         {regions.map((region, index) => {
