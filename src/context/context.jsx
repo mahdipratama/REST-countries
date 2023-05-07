@@ -28,6 +28,7 @@ const AppProvider = ({ children }) => {
 
       const dataCountry = data.map(country => {
         const {
+          cca3,
           name: { common },
           capital,
           population,
@@ -36,6 +37,7 @@ const AppProvider = ({ children }) => {
         } = country;
 
         return {
+          id: cca3,
           name: common,
           capital,
           population,

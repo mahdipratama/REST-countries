@@ -14,7 +14,7 @@ const CountryList = () => {
     <section className="container">
       <div className="list-country">
         {filteredCountries.map(country => {
-          return <Country key={country.name} {...country} />;
+          return <Country key={country.id} {...country} />;
         })}
       </div>
     </section>

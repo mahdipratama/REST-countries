@@ -23,9 +23,6 @@ const FilterRegion = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentRegion, setCurrentRegion] = useState('');
 
-  console.log(regions);
-  console.log(currentRegion);
-
   const ref = useRef(null);
   useOnClickOutside(ref, () => setIsOpen(false));
 
