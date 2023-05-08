@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Loading from '../components/Loading';
 import { useParams, Link } from 'react-router-dom';
+import BorderCountry from '../components/BorderCountry';
 
 const countryURL = 'https://restcountries.com/v3.1/alpha/';
 
@@ -8,6 +9,7 @@ const CountryDetail = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState(false);
   const [country, setCountry] = useState(null);
+  // const [borderCountries, setBorderCountries] = useState([]);
 
   const getCountry = async () => {
     setLoading(true);
@@ -18,7 +20,7 @@ const CountryDetail = () => {
 
       const data = await response.json();
 
-      const dataCountry = data.map(country => {
+      const [dataCountry] = data.map(country => {
         const {
           flags: { svg, alt },
           name: { common },
@@ -57,6 +59,8 @@ const CountryDetail = () => {
 
       setCountry(dataCountry);
 
+      // setBorderCountries(dataCountry.borders);
+
       setLoading(false);
     } catch (error) {
       setLoading(false);
@@ -85,12 +89,14 @@ const CountryDetail = () => {
     currencies,
     languages,
     borders,
-  } = country[0];
+  } = country;
+
+  const formattedPopulation = population.toLocaleString('de-DE');
 
   return (
     <section className="container">
       <Link to="/">
-        <button className="back-btn">
+        <button className="btn btn-back">
           <i className="fa-solid fa-arrow-left-long"></i> Back
         </button>
       </Link>
@@ -99,28 +105,45 @@ const CountryDetail = () => {
           <img src={flag} alt={alt} />
         </div>
         <div className="country-desc-detail">
-          <div className="country-detail-1">
-            <h2>{name}</h2>
-            <span>Native Name: </span>
-            {native}
-            <span>Population: </span>
-            {population}
-            <span>Region: </span>
-            {region}
-            <span>Sub Region: </span>
-            {subregion}
-            <span>Capital: </span>
-            {capital}
+          <h2>{name}</h2>
+          <div className="country-detail-wrapper">
+            <div className="country-detail-1">
+              <p>
+                Native Name: <span>{native}</span>
+              </p>
+              <p>
+                Population: <span>{formattedPopulation}</span>
+              </p>
+              <p>
+                Region: <span>{region}</span>
+              </p>
+              <p>
+                Sub Region: <span>{subregion}</span>
+              </p>
+              <p>
+                Capital: <span>{capital}</span>
+              </p>
+            </div>
+            <div className="country-detail-2">
+              <p>
+                Top Level Domain: <span>{tld}</span>
+              </p>
+              <p>
+                Top Currencies: <span>{currencies}</span>
+              </p>
+              <p>
+                Top Languages: <span>{languages}</span>
+              </p>
+            </div>
           </div>
-          <div className="country-detail-2">
-            <span>Top Level Domain: </span>
-            {tld}
-            <span>Currencies: </span>
-            {currencies}
-            <span>Languages: </span>
-            {languages}
+          <div className="country-borders">
+            <p>
+              Border Countries:{' '}
+              {borders.map(border => (
+                <BorderCountry key={border} border={border} />
+              ))}
+            </p>
           </div>
-          <div className="country-borders">{borders}</div>
         </div>
       </article>
     </section>
