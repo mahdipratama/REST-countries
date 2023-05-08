@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import SwitchTheme from './SwitchTheme';
 
 const Navbar = () => {
   return (
@@ -6,7 +7,7 @@ const Navbar = () => {
       <Link to="/">
         <h1 className="logo">Where in the world?</h1>
       </Link>
-      <h2 className="mode">Dark Mode</h2>
+      <SwitchTheme />
     </div>
   );
 };

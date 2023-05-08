@@ -1,13 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
 
-:root {
-  --bg-dark-mode: hsl(207, 26%, 17%);
-  --el-dark-mode: hsl(209, 23%, 22%);
+html {
+  --bg-color: hsl(0, 0%, 98%);
+  --text-color: hsl(200, 15%, 8%);
+  --input-color: hsl(0, 0%, 52%);
+  --element-color: hsl(0, 0%, 100%);
+  --switch-color: #f4f4f4;
+}
 
-  --white: hsl(0, 0%, 100%);
-
-  --text-light-mode: hsl(0, 0%, 52%);
-  --bg-light-mode: hsl(0, 0%, 98%);
+html[data-theme='dark'] {
+  --bg-color: hsl(207, 26%, 17%);
+  --text-color: hsl(0, 0%, 100%);
+  --element-color: hsl(209, 23%, 22%);
+  --switch-color: hsl(0, 1%, 76%);
 }
 
 body {
@@ -15,7 +20,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   font-family: 'Nunito Sans', sans-serif;
-  background-color: var(--bg-light-mode);
+  background-color: var(--bg-color);
 }
 
 a {
@@ -41,11 +46,60 @@ a {
 .navbar .logo {
   font-size: 31px;
   font-weight: 800;
+  color: var(--text-color);
 }
 
-.navbar .mode {
-  font-size: 25px;
+.navbar-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar-toggle h2 {
   font-weight: 600;
+  color: var(--text-color);
+}
+
+.navbar input[type='checkbox'] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.navbar input:checked + label {
+  background: var(--switch-color);
+}
+
+.navbar input:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+
+label:active::after {
+  width: 45px;
+}
+
+.navbar label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 52px;
+  height: 27px;
+  background: grey;
+  float: right;
+  border-radius: 100px;
+  position: relative;
+}
+
+.navbar label::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.3s;
 }
 
 /* SEARCH BAR */
@@ -71,16 +125,18 @@ a {
   border: none;
   border-radius: 6px;
   padding-left: 3rem;
+  background-color: var(--element-color);
+  color: var(--text-color);
 }
 
 .search-bar input:focus {
-  outline: 2px solid var(--text-light-mode);
+  outline: 2px solid var(--text-color);
 }
 
 .search-bar input::placeholder {
-  font-weight: 600;
   font-size: 14px;
   font-family: 'Nunito Sans', sans-serif;
+  color: var(--text-color);
 }
 
 .search-bar .search-icon {
@@ -88,7 +144,7 @@ a {
   top: 50%;
   left: 2%;
   transform: translateY(-50%);
-  color: var(--text-light-mode);
+  color: var(--text-color);
 }
 
 /* COUNTRY LIST */
@@ -121,16 +177,19 @@ a {
 
 .country-desc {
   padding: 25px;
+  background-color: var(--element-color);
 }
 
 .country-desc h3 {
   font-size: 18px;
   font-weight: 800;
+  color: var(--text-color);
 }
 
 .country-desc p {
   font-weight: 600;
   font-size: 14px;
+  color: var(--text-color);
   margin: 0;
 }
 
@@ -188,21 +247,22 @@ a {
   width: 200px;
   height: 64px;
   border-radius: 6px;
-  background-color: var(--white);
+  background-color: var(--element-color);
   box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.1);
   border: 0;
   cursor: pointer;
   font-size: 16px;
   font-weight: 300;
   margin-left: auto;
+  color: var(--text-color);
 }
 
 .dropdown button:hover {
-  background: var(--text-light-mode);
+  background: var(--switch-color);
 }
 
 .dropdown.open > button {
-  background: var(--text-light-mode);
+  background: var(--switch-color);
 }
 
 .dropdown .menu {
@@ -242,20 +302,22 @@ a {
   border: none;
   cursor: pointer;
   border-radius: 3px;
-  background-color: var(--white);
+  background-color: var(--element-color);
 }
 
 .btn:hover {
-  background-color: var(--text-light-mode);
+  background-color: var(--switch-color);
 }
 
 .btn-back {
   margin-bottom: 68px;
+  color: var(--text-color);
 }
 
 .btn-borders {
   margin-right: 7px;
   margin-bottom: 10px;
+  color: var(--text-color);
 }
 
 .country-detail {
@@ -291,10 +353,12 @@ a {
 .country-desc-detail h2 {
   margin-top: 0;
   font-size: 32px;
+  color: var(--text-color);
 }
 
 .country-desc-detail p {
   font-weight: 600;
+  color: var(--text-color);
 }
 
 .country-desc-detail span {
