@@ -5,9 +5,9 @@
   <p align="center">
     <br />
     <br />
-    <a href="https://weather-app-95w.pages.dev/#/current-location">View Demo</a>
+    <a href="https://rest-countries-vite.netlify.app" target="_blank">View Demo</a>
     ·
-    <a href="https://github.com/mahdipratama/may-weather" target="_blank">Report Bug</a>
+    <a href="https://github.com/mahdipratama/REST-countries" target="_blank">Report Bug</a>
     ·
   </p>
 </div>
@@ -57,7 +57,7 @@ is integrating with the <a href='https://restcountries.com/' target=_blank>REST 
 
 <h2 align="center">Links</h2>
 
-- Live Site URL: [https://weather-app-95w.pages.dev/#/current-location](https://weather-app-95w.pages.dev/#/current-location)
+- Live Site URL: [https://rest-countries-vite.netlify.app](https://rest-countries-vite.netlify.app)
 
 <br>
 
