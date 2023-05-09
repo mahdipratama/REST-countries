@@ -27,7 +27,7 @@
 
 <div align="center">
 
-![](./src/assets/desktop-preview.png)
+![](./src/assets/desktop-preview.jpg)
 
 </div>
 
