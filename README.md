@@ -45,6 +45,16 @@ is integrating with the <a href='https://restcountries.com/' target=_blank>REST 
 
 <br>
 
+## **What I learned**
+
+* define `context.jsx` file to create a global state that can be used by any component in the application
+* Usage of `useContext` and `createContext`to enable the passing of data through the component tree without the need to pass down props manually at every level.
+* Usage of `useRef` hook is used to access the current value of the search input field without the need to re-render the component on every change.
+* <a href="https://reactrouter.com/en/main" target="_blank">React Router</a> to create multiple pages or views within our single-page application by using URLs to navigate between them.
+* A lot of minor things
+
+<br>
+
 <h2 align="center">Links</h2>
 
 - Live Site URL: [https://weather-app-95w.pages.dev/#/current-location](https://weather-app-95w.pages.dev/#/current-location)
@@ -63,38 +73,34 @@ is integrating with the <a href='https://restcountries.com/' target=_blank>REST 
 ## My process
 
 ### Built with
-
 <!-- Bagdes -->
 
-![](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![](https://img.shields.io/badge/-ReactJs-61DAFB?logo=react&logoColor=white&style=for-the-badge)
 ![](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![](https://img.shields.io/badge/JS-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=black)
-![](https://img.shields.io/badge/SASS-hotpink?style=for-the-badge&logo=sass&logoColor=white)
 
-- Semantic HTML5 markup
 - Mobile-first approach
 - Flex Layout
-- [SASS](https://sass-lang.com/documentation/modules) - Sass modules
-- [Openeathermap API](https://openweathermap.org/) - weather API
+- React Router
 
 ## Acknowledgments
 
-When using `sass` in order to build this solution
+When using `vite` in order to build this solution
 
-- Install `sass` if not yet installed:
-
-```bash
-npm install -g sass
-```
-
-- Run build command from command line:
+- Install all dependencies:
 
 ```bash
-npm install gulp gulp-sass sass --save-dev
+npm install
 ```
 
 - If you want to edit the code and test, in the root folder of this repository, run this command from the command line:
 
 ```bash
-gulp
+npm run dev
+```
+
+
+- Run build command from command line:
+
+```bash
+npm run build
 ```
