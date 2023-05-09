@@ -33,7 +33,7 @@
 
 ## The Challenge
 
-is integrating with the <a href='https://restcountries.com/' target=_blank>REST Countries API</a> to pull country data and display it like in the designs.
+The challenge is integrating with the <a href='https://restcountries.com/' target=_blank>REST Countries API</a> to pull country data and display it like in the designs.
 
 - Your users should be able to:
   - See all countries from the API on the homepage
@@ -58,6 +58,7 @@ is integrating with the <a href='https://restcountries.com/' target=_blank>REST 
 <h2 align="center">Links</h2>
 
 - Live Site URL: [https://rest-countries-vite.netlify.app](https://rest-countries-vite.netlify.app)
+- Solution: [https://www.frontendmentor.io/solutions/rest-countries-api-with-color-theme-switcher-reactjs-vite-Anz7OzOn9S](https://www.frontendmentor.io/solutions/rest-countries-api-with-color-theme-switcher-reactjs-vite-Anz7OzOn9S)
 
 <br>
 
