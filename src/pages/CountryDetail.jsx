@@ -95,8 +95,8 @@ const CountryDetail = () => {
 
   return (
     <section className="container">
-      <Link to="/">
-        <button className="btn btn-back">
+      <Link to="/" className="btn-back">
+        <button className="btn">
           <i className="fa-solid fa-arrow-left-long"></i> Back
         </button>
       </Link>
