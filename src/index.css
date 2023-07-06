@@ -450,7 +450,7 @@ label:active::after {
   }
 
   .list-country {
-    column-gap: 10px;
+    row-gap: 35px;
   }
 
   .country-detail {
