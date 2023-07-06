@@ -7,7 +7,7 @@ import {
   useCallback,
 } from 'react';
 
-import allCountry from './data.js';
+const allCountryURL = 'https://restcountries.com/v3.1/all';
 
 const AppContext = createContext();
 
@@ -21,12 +21,16 @@ const AppProvider = ({ children }) => {
   const fetchAllCountry = useCallback(async () => {
     setLoading(true);
     try {
-      const data = allCountry;
+      const response = await fetch(`${allCountryURL}`);
+
+      if (!response.ok) throw new Error('Error Get Countries');
+
+      const data = await response.json();
 
       const dataCountry = data.map(country => {
         const {
-          alpha3Code,
-          name,
+          cca3,
+          name: { common },
           capital,
           population,
           region,
@@ -34,8 +38,8 @@ const AppProvider = ({ children }) => {
         } = country;
 
         return {
-          id: alpha3Code,
-          name,
+          id: cca3,
+          name: common,
           capital,
           population,
           region,
