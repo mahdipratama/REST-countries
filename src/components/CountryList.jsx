@@ -3,20 +3,22 @@ import Loading from './Loading';
 import { useGlobalContext } from '../context/context';
 
 const CountryList = () => {
-  const { filteredCountries, loading } = useGlobalContext();
+  const { filteredCountries, loading, searchTerm } = useGlobalContext();
+
+  const renderCountry = filteredCountries
+    .filter(country => country.name.toLowerCase().includes(searchTerm))
+    .map(country => {
+      return <Country key={country.id} {...country} />;
+    });
 
   if (loading) return <Loading />;
 
-  if (filteredCountries.length < 1)
+  if (renderCountry.length < 1)
     return <h2>No countries matched your search criteria</h2>;
 
   return (
     <section className="container">
-      <div className="list-country">
-        {filteredCountries.map(country => {
-          return <Country key={country.id} {...country} />;
-        })}
-      </div>
+      <div className="list-country">{renderCountry}</div>
     </section>
   );
 };

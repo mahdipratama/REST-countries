@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {
   useEffect,
   useState,
@@ -6,7 +7,7 @@ import {
   useCallback,
 } from 'react';
 
-const searchCountryURL = 'https://restcountries.com/v3.1/name/';
+import allCountry from './data.js';
 
 const AppContext = createContext();
 
@@ -15,21 +16,17 @@ const AppProvider = ({ children }) => {
   const [regions, setRegions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filteredCountries, setFilteredCountries] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('a');
+  const [searchTerm, setSearchTerm] = useState('');
 
   const fetchAllCountry = useCallback(async () => {
     setLoading(true);
     try {
-      const response = await fetch(`${searchCountryURL}${searchTerm}`);
-
-      if (!response.ok) throw new Error('Error Get Countries');
-
-      const data = await response.json();
+      const data = allCountry;
 
       const dataCountry = data.map(country => {
         const {
-          cca3,
-          name: { common },
+          alpha3Code,
+          name,
           capital,
           population,
           region,
@@ -37,8 +34,8 @@ const AppProvider = ({ children }) => {
         } = country;
 
         return {
-          id: cca3,
-          name: common,
+          id: alpha3Code,
+          name,
           capital,
           population,
           region,
@@ -91,6 +88,7 @@ const AppProvider = ({ children }) => {
         filteredCountries,
         FilterRegions,
         setSearchTerm,
+        searchTerm,
       }}>
       {children}
     </AppContext.Provider>

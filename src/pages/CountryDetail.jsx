@@ -9,7 +9,6 @@ const CountryDetail = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState(false);
   const [country, setCountry] = useState(null);
-  // const [borderCountries, setBorderCountries] = useState([]);
 
   const getCountry = async () => {
     setLoading(true);
@@ -58,8 +57,6 @@ const CountryDetail = () => {
       });
 
       setCountry(dataCountry);
-
-      // setBorderCountries(dataCountry.borders);
 
       setLoading(false);
     } catch (error) {
