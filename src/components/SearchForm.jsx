@@ -10,7 +10,7 @@ const SearchForm = () => {
   }, []);
 
   const searchCountry = () => {
-    setSearchTerm(searchValue.current.value);
+    setSearchTerm(searchValue.current.value.toLowerCase());
   };
 
   return (
