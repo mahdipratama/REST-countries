@@ -83,7 +83,7 @@ The challenge is integrating with the <a href='https://restcountries.com/' targe
 - Flex Layout
 - React Router
 
-## Acknowledgments
+## Instructions
 
 When using `vite` in order to build this solution
 
