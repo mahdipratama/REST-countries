@@ -76,8 +76,9 @@ The challenge is integrating with the <a href='https://restcountries.com/' targe
 ### Built with
 <!-- Bagdes -->
 
-![](https://img.shields.io/badge/-ReactJs-61DAFB?logo=react&logoColor=white&style=for-the-badge)
+![](https://img.shields.io/badge/-React.Js-61DAFB?logo=react&logoColor=white&style=for-the-badge)
 ![](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![](https://img.shields.io/badge/ReactRouter-CA4245?style=for-the-badge&logo=reactrouter&logoColor=white)
 
 - Mobile-first approach
 - Flex Layout
